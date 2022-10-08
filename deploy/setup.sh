@@ -3,15 +3,10 @@
 set -e
 
 # TODO: Set to URL of git repo.
-PROJECT_GIT_URL='https://github.com/JuanSanchezKZ/PythonAPI'
+PROJECT_GIT_URL='https://github.com/JuanSanchezKZ/PythonAPI.git'
 
-PROJECT_BASE_PATH='/usr/local/api'
-VIRTUALENV_BASE_PATH='/usr/local/virtualenvs'
+PROJECT_BASE_PATH='/usr/local/apps/profiles-rest-api'
 
-# Set Ubuntu Language
-locale-gen en_GB.UTF-8
-
-# Install Python, SQLite and pip
 echo "Installing dependencies..."
 apt-get update
 apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git
@@ -26,7 +21,7 @@ python3 -m venv $PROJECT_BASE_PATH/env
 
 # Install python packages
 $PROJECT_BASE_PATH/env/bin/pip install -r $PROJECT_BASE_PATH/requirements.txt
-$PROJECT_BASE_PATH/env/bin/pip install uwsgi==2.0.18
+$PROJECT_BASE_PATH/env/bin/pip install uwsgi
 
 # Run migrations and collectstatic
 cd $PROJECT_BASE_PATH
