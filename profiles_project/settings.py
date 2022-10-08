@@ -25,12 +25,13 @@ SECRET_KEY = 'a7b$5)u8lc)nl9a9b&mtgo!9ea&roh0*u6d(njil^n_yq2a-kx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS  = ["*"]
+ALLOWED_HOSTS  = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,6 +132,10 @@ STATIC_ROOT = 'static/'
 
 
 APPEND_SLASH=False
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
