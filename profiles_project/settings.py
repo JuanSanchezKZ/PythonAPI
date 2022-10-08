@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'profiles_api',
-    
 ]
 
 
@@ -130,9 +129,6 @@ AUTH_USER_MODEL= 'profiles_api.UserProfile'
 
 STATIC_ROOT = 'static/'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-]
 
 APPEND_SLASH=False
 
