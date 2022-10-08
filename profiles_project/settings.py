@@ -31,7 +31,6 @@ ALLOWED_HOSTS  = ["https://ec2-3-89-120-102.compute-1.amazonaws.com/", '127.0.0.
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
