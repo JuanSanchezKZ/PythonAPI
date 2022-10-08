@@ -5,6 +5,8 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.conf import settings
+import jsonfield
+
 
 
 class UserProfileManager(BaseUserManager):
@@ -60,7 +62,8 @@ class ProfileFeedItem(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete = models.CASCADE
     )
-    status_text = models.CharField(max_length=255)
+    status_text =  models.CharField(max_length=255) 
+    metadata =  jsonfield.JSONField()
     created_on = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

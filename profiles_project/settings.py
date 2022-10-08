@@ -25,12 +25,13 @@ SECRET_KEY = 'a7b$5)u8lc)nl9a9b&mtgo!9ea&roh0*u6d(njil^n_yq2a-kx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS  = ["https://ec2-3-89-120-102.compute-1.amazonaws.com/", '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,11 +41,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'profiles_api',
+    
 ]
 
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +130,17 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL= 'profiles_api.UserProfile'
 
 STATIC_ROOT = 'static/'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+]
+
+APPEND_SLASH=False
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        "rest_framework.parsers.JSONParser"
+     )
+ }

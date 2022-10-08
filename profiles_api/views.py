@@ -115,6 +115,8 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
         permissions.UpdateOwnStatus,
         IsAuthenticated
     )
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('status_text',)
     
     def perform_create(self, serializer):
         """Sets the user profile to the logged in user"""
