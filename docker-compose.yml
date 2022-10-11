@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ./data/db:/var/lib/postgresql/db
     environment:
       - POSTGRES_PASSWORD=postgres
   web:
@@ -19,3 +19,13 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+volumes:
+  static:

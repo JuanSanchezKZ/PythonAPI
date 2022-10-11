@@ -133,7 +133,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -143,7 +143,7 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL= 'profiles_api.UserProfile'
 
-STATIC_ROOT = 'static/'
+STATIC_ROOT = '/static/'
 
 
 APPEND_SLASH=False
