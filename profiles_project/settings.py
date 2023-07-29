@@ -138,7 +138,11 @@ STATIC_ROOT = "/static/"
 
 APPEND_SLASH = False
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:4200", "http://localhost:53695"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "http://localhost:53695",
+    "https://myanimeschedules.netlify.app",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_PARSER_CLASSES": (
